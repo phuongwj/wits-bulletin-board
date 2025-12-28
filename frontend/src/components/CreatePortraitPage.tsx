@@ -29,10 +29,14 @@ export default function CreatePortraitPage() {
     canvasRef.current?.clearCanvas();
   }
 
+  const handleResetClick = () => {
+    canvasRef.current?.resetCanvas();
+  }
+
   return (
     <>
       <div>
-        <h1>Tools</h1>
+        {/* <h1>Tools</h1>
         <div>
           <button
             type="button"
@@ -66,9 +70,25 @@ export default function CreatePortraitPage() {
           >
             Clear
           </button>
-        </div>
-        <h1 id="hello">Canvas</h1>
-        <ReactSketchCanvas ref={canvasRef} canvasColor="transparent" width="1000px" height="400px"/>
+          <button
+            type="button"
+            onClick={handleResetClick}
+          >
+            Reset
+          </button>
+        </div> */}
+        <h1>Canvas</h1>
+        <ReactSketchCanvas 
+          className="canvas"
+          ref={canvasRef} 
+          style={{
+            width: "450px",
+            height: "500px",
+            border: "2px solid #ff3b3bff",
+            borderRadius: "8px",
+            overflow: "hidden"
+          }}
+        />
       </div>
     </>
   )
