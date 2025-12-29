@@ -1,37 +1,10 @@
 import { ReactSketchCanvas, type ReactSketchCanvasRef } from "react-sketch-canvas";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import '../styles/CreatePortraitPage.scss';
 
 
 export default function CreatePortraitPage() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
-  const [eraseMode, setEraseMode] = useState(false);
-
-  const handlePenClick = () => {
-    setEraseMode(false);
-    canvasRef.current?.eraseMode(false);
-  }
-
-  const handleEraserClick = () => {
-    setEraseMode(true);
-    canvasRef.current?.eraseMode(true);
-  }
-
-  const handleUndoClick = () => {
-    canvasRef.current?.undo();
-  }
-
-  const handleRedoClick = () => {
-    canvasRef.current?.redo();
-  }
-
-  const handleClearClick = () => {
-    canvasRef.current?.clearCanvas();
-  }
-
-  const handleResetClick = () => {
-    canvasRef.current?.resetCanvas();
-  }
 
   return (
     <>

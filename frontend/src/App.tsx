@@ -1,11 +1,12 @@
 import './styles/App.scss';
-import CreatePortraitPage from './components/CreatePortraitPage';
+import Toolbar from './components/Toolbar';
 
 function App() {
 
   return (
     <>
-      <CreatePortraitPage/>
+      {/* <CreatePortraitPage/> */}
+      <Toolbar/>
     </>
   )
 }
