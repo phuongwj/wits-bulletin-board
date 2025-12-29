@@ -1,11 +1,11 @@
-import Toolbar from './components/Toolbar';
+import CreatePortraitPage from './components/CreatePortraitPage';
 
 function App() {
 
   return (
-    <>
-      <Toolbar/>
-    </>
+    <div className="flex">
+      <CreatePortraitPage/>
+    </div>
   )
 }
 
