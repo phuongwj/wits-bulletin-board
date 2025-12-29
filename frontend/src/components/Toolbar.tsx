@@ -1,5 +1,5 @@
 import { Paintbrush, Eraser, Undo2, Redo2 } from "lucide-react";
-import { useState, type ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
 
 // Defining an interface for the props
 interface ToolbarProps {

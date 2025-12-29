@@ -1,6 +1,7 @@
 import { ReactSketchCanvas, type ReactSketchCanvasRef } from "react-sketch-canvas";
 import { type ChangeEvent, useRef, useState } from "react";
 import Toolbar from './Toolbar';
+import CanvasAction from './CanvasAction';
 
 export default function CreatePortraitPage() {
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
@@ -46,21 +47,21 @@ export default function CreatePortraitPage() {
         />
 
         {/* Canvas to Draw */}
-        <div>
-            <ReactSketchCanvas 
-              className="canvas"
-              ref={canvasRef} 
-              strokeColor={strokeColor}
-              strokeWidth={strokeWeight}
-              style={{
-                width: "350px",
-                height: "430px",
-                border: "1px",
-                borderRadius: "8px",
-                overflow: "hidden"
-              }}
-            />
-        </div>
+        <ReactSketchCanvas 
+          className="canvas"
+          ref={canvasRef} 
+          strokeColor={strokeColor}
+          strokeWidth={strokeWeight}
+          style={{
+            width: "350px",
+            height: "430px",
+            border: "1px",
+            borderRadius: "8px",
+            overflow: "hidden"
+          }}
+        />
+
+        {/* Clear Canvas and Save Canvas */}
       </div>
     </>
   )
