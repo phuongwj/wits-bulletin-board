@@ -46,22 +46,29 @@ export default function CreatePortraitPage() {
           setStrokeWeight={handleStrokeWeight}
         />
 
-        {/* Canvas to Draw */}
-        <ReactSketchCanvas 
-          className="canvas"
-          ref={canvasRef} 
-          strokeColor={strokeColor}
-          strokeWidth={strokeWeight}
-          style={{
-            width: "350px",
-            height: "430px",
-            border: "1px",
-            borderRadius: "8px",
-            overflow: "hidden"
-          }}
-        />
+        {/* Canvas and Actions */}
+        <div className="flex flex-col gap-2">
 
-        {/* Clear Canvas and Save Canvas */}
+          {/* Canvas to Draw */}
+          <ReactSketchCanvas 
+            className="canvas"
+            ref={canvasRef} 
+            strokeColor={strokeColor}
+            strokeWidth={strokeWeight}
+            style={{
+              width: "350px",
+              height: "444px",
+              border: "1px",
+              borderRadius: "8px",
+              overflow: "hidden"
+            }}
+          />
+
+          {/* Clear Canvas and Save Canvas */}
+          <CanvasAction
+            onClear={handleUndo}
+          />
+        </div>
       </div>
     </>
   )

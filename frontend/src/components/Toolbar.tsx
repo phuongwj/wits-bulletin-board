@@ -33,7 +33,7 @@ const Toolbar = ({
 }: ToolbarProps) => {
 
   return (
-    <div className="bg-[#383838] p-4 rounded-xl shadow-md flex flex-col space-y-3 w-14">
+    <div className="bg-[#383838] p-4 rounded-xl shadow-md flex flex-col space-y-1.5 w-12 h-111">
 
         {/* Color Picker Section */}
         <div className="flex flex-col items-center space-y-2">
@@ -58,7 +58,7 @@ const Toolbar = ({
         <div className="h-px bg-[#686868]"></div>
 
         {/* Tool Selection */}
-        <div className="w-full flex flex-col items-center space-y-3">
+        <div className="w-full flex flex-col items-center space-y-1">
 
             {/* Paintbrush */}
             <button 
@@ -119,7 +119,7 @@ const Toolbar = ({
                         key={label}
                         onClick={() => setStrokeWeight(value)}
                         className={`
-                            w-7 h-7 rounded-lg 
+                            w-8 h-8 rounded-lg 
                             hover:bg-gray-400/10 transition-all transition-duration-500 
                             flex items-center justify-center cursor-pointer
                             ${strokeWeight === value ? 'bg-gray-400/10' : ''}
