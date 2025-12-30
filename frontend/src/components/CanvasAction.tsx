@@ -1,5 +1,4 @@
 import { Trash2 } from "lucide-react";
-import React from 'react';
 
 // Defining an interface for the props
 interface CanvasActionProps {
@@ -10,10 +9,10 @@ const CanvasAction = ({
     onClear,
 }: CanvasActionProps) => {
   return (
-    <div>
-
-        {/* Trash */}
+    <div className="flex flex-row justify-center space-x-2">
+        {/* Clear Canvas */}
         <button 
+            id="my-button"
             className="
                 h-9 w-9 rounded-lg 
                 hover:text-red-500/90 hover:bg-gray-400/10 transition-all transition-duration-500 
@@ -21,7 +20,15 @@ const CanvasAction = ({
             onClick={() => onClear()}
             >
             <Trash2 className="h-5 w-5"/>
-        </button> 
+        </button>
+
+        {/* Save Portrait */}
+        <button 
+            className="
+                bg-[#383838] text-white px-6 py-2 rounded-lg 
+                hover:bg-gray-400/20 transition-all transition-duration-500 cursor-pointer">
+            Save Portrait
+        </button>
     </div>
   )
 }
