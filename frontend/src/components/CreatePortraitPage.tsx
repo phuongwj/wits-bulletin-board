@@ -30,6 +30,10 @@ export default function CreatePortraitPage() {
     setStrokeWeight(mode);
   }
 
+  const handleClearCanvas = () => {
+    canvasRef.current?.clearCanvas();
+  }
+
   return (
     <>
       <div className="flex gap-4">
@@ -55,6 +59,7 @@ export default function CreatePortraitPage() {
             ref={canvasRef} 
             strokeColor={strokeColor}
             strokeWidth={strokeWeight}
+            eraserWidth={strokeWeight}
             style={{
               width: "350px",
               height: "444px",
@@ -66,7 +71,7 @@ export default function CreatePortraitPage() {
 
           {/* Clear Canvas and Save Canvas */}
           <CanvasAction
-            onClear={handleUndo}
+            onClear={handleClearCanvas}
           />
         </div>
       </div>
