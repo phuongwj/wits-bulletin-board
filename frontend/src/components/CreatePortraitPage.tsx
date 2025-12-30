@@ -61,8 +61,8 @@ export default function CreatePortraitPage() {
             strokeWidth={strokeWeight}
             eraserWidth={strokeWeight}
             style={{
-              width: "350px",
-              height: "444px",
+              width: "250px",
+              height: "280px",
               border: "1px",
               borderRadius: "8px",
               overflow: "hidden"
