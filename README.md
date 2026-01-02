@@ -10,7 +10,7 @@ Frontend:
 - TypeScript
 - React Router
 - Vite
-- Sass
+- TailwindCSS
 
 Backend: TBD
 
