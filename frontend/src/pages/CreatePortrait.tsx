@@ -1,4 +1,5 @@
 import { ReactSketchCanvas, type ReactSketchCanvasRef } from "react-sketch-canvas";
+import { ArrowLeft } from 'lucide-react';
 import { type ChangeEvent, useRef, useState } from "react";
 import Tools from '../components/Tools';
 import Form from '../components/Form';
@@ -49,52 +50,75 @@ export default function CreatePortrait() {
 
   return (
     <>
-      <div className="flex gap-4 p-4">
+      <div className="flex flex-col items-center">
 
-        {/* Left side: Canvas + Tools */}
-        <div className="flex flex-col gap-2 relative">
+        {/* Header: Back Button + Draw Title */}
+        <div className="flex flex-row w-full items-center justify-between mb-10">
+          <button 
+            className="inline-flex items-center w-fit h-fit text-lg text-white/50 hover:text-white transition duration-200 cursor-pointer">
+            <ArrowLeft className="h-5 w-5"/>
+            Back to board
+          </button>
 
-          {/* Canvas to Draw */}
           <div
-            className="bg-teal-100 p-4 rounded-sm w-fit"
+            className="bg-[#FFF0B3] px-6 py-3"
             style={{
-              transform: 'rotate(1deg)',
-              boxShadow: 'var(--shadow-note),'
+              transform: 'rotate(-1deg)',
+              boxShadow: 'var(--shadow-note)',
             }}
           >
-            <div className="pin"></div>
-            <ReactSketchCanvas
-              ref={canvasRef} 
-              strokeColor={strokeColor}
-              strokeWidth={strokeWeight}
-              eraserWidth={strokeWeight}
-              onChange={updateUndoRedoState}
+            <p className="text-[#38332E] text-3xl">
+              Draw Your Portrait 🎨
+            </p>
+          </div>
+        </div>
+
+        {/* Main: Canvas + Tools + Form */}
+        <div className="flex gap-4 p-4">
+
+          {/* Left side: Canvas + Tools */}
+          <div className="flex flex-col gap-2 relative">
+
+            {/* Canvas to Draw */}
+            <div
+              className="bg-teal-100 p-4 w-fit"
               style={{
-                width: "300px",
-                height: "300px"
+                transform: 'rotate(1deg)',
+                boxShadow: 'var(--shadow-note),'
               }}
+            >
+              <div className="pin"></div>
+              <ReactSketchCanvas
+                ref={canvasRef} 
+                strokeColor={strokeColor}
+                strokeWidth={strokeWeight}
+                eraserWidth={strokeWeight}
+                onChange={updateUndoRedoState}
+                style={{
+                  width: "300px",
+                  height: "300px"
+                }}
+              />
+            </div>
+
+            {/* Toolbar */}
+            <Tools
+              strokeColor={strokeColor}
+              setStrokeColor={handleStrokeColor}
+              eraseMode={eraseMode}
+              setEraseMode={handleEraserClick}
+              onClear={handleClearCanvas}
+              onUndo={handleUndo}
+              onRedo={handleRedo}
+              strokeWeight={strokeWeight}
+              setStrokeWeight={handleStrokeWeight}
+              canUndoRedo={canUndoRedo}
             />
           </div>
 
-          
-
-          {/* Toolbar */}
-          <Tools
-            strokeColor={strokeColor}
-            setStrokeColor={handleStrokeColor}
-            eraseMode={eraseMode}
-            setEraseMode={handleEraserClick}
-            onClear={handleClearCanvas}
-            onUndo={handleUndo}
-            onRedo={handleRedo}
-            strokeWeight={strokeWeight}
-            setStrokeWeight={handleStrokeWeight}
-            canUndoRedo={canUndoRedo}
-          />
+          {/* Right side: Form */}
+          <Form/>
         </div>
-
-        {/* Right side: Form */}
-        {/* <Form/> */}
       </div>
     </>
   )

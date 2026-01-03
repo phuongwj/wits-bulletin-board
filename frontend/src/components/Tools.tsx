@@ -33,7 +33,7 @@ const Tools = ({
 }: ToolbarProps) => {
 
   return (
-    <div className="bg-[#383838] p-4 rounded-xl shadow-md flex flex-col space-y-1.5 h-fit w-96">
+    <div className="p-4 rounded-xl flex flex-col space-y-2 h-fit w-96">
 
         {/* Tool Selection */}
         <div className="flex items-center gap-3 flex-wrap">
