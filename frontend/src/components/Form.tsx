@@ -1,11 +1,17 @@
 import { useState } from 'react';
 
-export default function Form() {
+interface FormProps {
+    onSave: (name: string, bio: string) => void | Promise<void>;
+};
+
+const Form = ({
+    onSave
+}: FormProps) => {
     const [name, setName] = useState('');
     const [bio, setBio] = useState('');
 
-    const handleSave = () => {
-        alert("Saving function goes here!");
+    const handleSave = async () => {
+        await onSave(name, bio);
     }
 
   return (
@@ -57,3 +63,5 @@ export default function Form() {
     </div>
   )
 }
+
+export default Form;

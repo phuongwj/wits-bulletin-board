@@ -14,14 +14,6 @@ export default function CreatePortrait() {
   const [strokeWeight, setStrokeWeight] = useState(2);
   const [canUndoRedo, setCanUndoRedo] = useState({ canUndo: false, canRedo: false});
 
-  const updateUndoRedoState = async () => {
-    if (canvasRef.current) {
-      const paths = await canvasRef.current.exportPaths();
-      const canUndo = paths.length > 0;
-      setCanUndoRedo(prev => ({ ...prev, canUndo }));
-    }
-  };
-
   const handleEraserClick = (mode: boolean) => {
     setEraseMode(mode);
     canvasRef.current?.eraseMode(mode);
@@ -42,6 +34,14 @@ export default function CreatePortrait() {
     updateUndoRedoState();
   }
 
+  const updateUndoRedoState = async () => {
+    if (canvasRef.current) {
+      const paths = await canvasRef.current.exportPaths();
+      const canUndo = paths.length > 0;
+      setCanUndoRedo(prev => ({ ...prev, canUndo }));
+    }
+  };
+
   const handleStrokeWeight = (mode: number) => {
     setStrokeWeight(mode);
   }
@@ -50,6 +50,33 @@ export default function CreatePortrait() {
     canvasRef.current?.clearCanvas();
     setCanUndoRedo({ canUndo: false, canRedo: false });
   }
+
+  const exportCanvasImage = async (): Promise<string | null> => {
+    if (!canvasRef.current) {
+      console.log("No canvas references");
+      return null;
+    }
+
+    try {
+      const dataUrl = await canvasRef.current.exportImage("png");
+      return dataUrl;
+    } catch (err) {
+      console.error("Failed to export canvas", err);
+      return null;
+    }
+  };
+
+  const handlePinToBoard = async (name: string, bio: string) => {
+    const imageDataUrl = await exportCanvasImage();
+    if (!imageDataUrl) {
+      console.log("No image found :(")
+      return;
+    }
+
+    // Supabase call
+
+    console.log({ name, bio, imageDataUrl });
+  };
 
   return (
     <>
@@ -122,7 +149,9 @@ export default function CreatePortrait() {
           </div>
 
           {/* Right side: Form */}
-          <Form/>
+          <Form
+            onSave={handlePinToBoard}
+          />
         </div>
       </div>
     </>
