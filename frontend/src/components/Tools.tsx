@@ -133,7 +133,7 @@ const Tools = ({
                 id="stroke-size"
                 type="range" 
                 min="1"
-                max="10"
+                max="20"
                 value={strokeWeight}
                 step="1"
                 onInput={e => setStrokeWeight(Number(e.currentTarget.value))}
