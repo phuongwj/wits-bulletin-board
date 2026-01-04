@@ -1,10 +1,13 @@
 import { ReactSketchCanvas, type ReactSketchCanvasRef } from "react-sketch-canvas";
-import { ArrowLeft } from 'lucide-react';
 import { type ChangeEvent, useRef, useState } from "react";
+import { useNavigate } from "react-router";
+import { ArrowLeft } from 'lucide-react';
 import Tools from '../components/Tools';
 import Form from '../components/Form';
 
 export default function CreatePortrait() {
+  let navigate = useNavigate();
+
   const canvasRef = useRef<ReactSketchCanvasRef>(null);
   const [strokeColor, setStrokeColor] = useState("#6497eb");
   const [eraseMode, setEraseMode] = useState(false);
@@ -55,7 +58,9 @@ export default function CreatePortrait() {
         {/* Header: Back Button + Draw Title */}
         <div className="flex flex-row w-full items-center justify-between mb-10">
           <button 
-            className="inline-flex items-center w-fit h-fit text-lg text-white/50 hover:text-white transition duration-200 cursor-pointer">
+            className="inline-flex items-center gap-2 w-fit h-fit text-lg text-white/50 hover:text-white transition duration-200 cursor-pointer"
+            onClick={() => navigate('/')}
+          >
             <ArrowLeft className="h-5 w-5"/>
             Back to board
           </button>
