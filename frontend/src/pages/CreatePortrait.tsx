@@ -1,7 +1,7 @@
 import { ReactSketchCanvas, type ReactSketchCanvasRef } from "react-sketch-canvas";
 import { type ChangeEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router";
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Pointer } from 'lucide-react';
 import Tools from '../components/Tools';
 import Form from '../components/Form';
 
@@ -101,7 +101,8 @@ export default function CreatePortrait() {
                 onChange={updateUndoRedoState}
                 style={{
                   width: "300px",
-                  height: "300px"
+                  height: "300px",
+                  cursor: "default"
                 }}
               />
             </div>
