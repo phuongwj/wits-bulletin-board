@@ -72,7 +72,7 @@ export default function About() {
                     {/* left side */}
                     <div className="flex flex-col items-center gap-5 relative">
                         {/* who we are */}
-                        <div className="bg-[#E0CEF3] p-6 space-y-6 w-150 h-60 text-xl"
+                        <div className="bg-[#E0CEF3] p-6 space-y-6 w-180 h-60 text-xl"
                         style={{
                             transform: 'rotate(-1deg)',
                             boxShadow: 'var(--shadow-note)',
@@ -88,7 +88,7 @@ export default function About() {
                         </div>
                         
                         {/* Weekly lounges */}
-                        <div className=" flex flex-col items-center p-6 space-y-6 w-150 h-60">
+                        <div className=" flex flex-col items-center p-6 space-y-6 w-180 h-60">
                             <div className="bg-[#E0CEF3] w-full h-fit p-4 text-xl text-center"
                             style={{
                                 transform: 'rotate(0deg)',
@@ -143,7 +143,7 @@ export default function About() {
                         </div>
 
                         {/* Get involved */}
-                        <div className="flex flex-col items-center p-6 space-y-6 w-150 h-60 mt-10">
+                        <div className="flex flex-col items-center p-6 space-y-6 w-180 h-60 mt-10">
                             <div className="bg-[#E0CEF3] w-full h-fit p-4 text-xl text-center"
                             style={{
                                 transform: 'rotate(0deg)',
