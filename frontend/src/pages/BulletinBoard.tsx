@@ -14,6 +14,18 @@ export default function BulletinBoard() {
         >
             Click here to go to CreatePortrait Page
         </button>
+        <button 
+            onClick={() => navigate("/about")}
+            className="hover:text-emerald-500 transition duration-200 cursor-pointer"
+        >
+            Click here to go to About
+        </button>
+         <button 
+            onClick={() => navigate("/contact")}
+            className="hover:text-emerald-500 transition duration-200 cursor-pointer"
+        >
+            Contact Us
+        </button>
     </div>
   )
 }
