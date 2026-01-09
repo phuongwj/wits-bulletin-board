@@ -4,15 +4,13 @@ interface FormProps {
     onSave: (name: string, bio: string) => void | Promise<void>;
 };
 
-const Form = ({
-    onSave
-}: FormProps) => {
-    const [name, setName] = useState('');
-    const [bio, setBio] = useState('');
+const Form = ({ onSave }: FormProps) => {
+  const [name, setName] = useState('');
+  const [bio, setBio] = useState('');
 
-    const handleSave = async () => {
-        await onSave(name, bio);
-    }
+  const handleSave = async () => {
+    await onSave(name, bio);
+  }
 
   return (
     <div 

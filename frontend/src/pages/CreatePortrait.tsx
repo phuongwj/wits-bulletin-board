@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { ArrowLeft } from 'lucide-react';
 import Tools from '../components/Tools';
 import Form from '../components/Form';
+import { supabase } from "../supabase";
 
 export default function CreatePortrait() {
   let navigate = useNavigate();
@@ -55,7 +56,7 @@ export default function CreatePortrait() {
     if (!canvasRef.current) {
       console.log("No canvas references");
       return null;
-    }
+  }
 
     try {
       const dataUrl = await canvasRef.current.exportImage("png");
@@ -73,7 +74,18 @@ export default function CreatePortrait() {
       return;
     }
 
-    // Supabase call
+    const { error } = await supabase
+      .from("pins")
+      .insert({
+        name,
+        bio,
+        image_url: imageDataUrl,
+      });
+
+    if (error) {
+      console.error("Error inserting pin: ", error);
+      return;
+    }
 
     console.log({ name, bio, imageDataUrl });
   };
