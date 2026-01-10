@@ -12,7 +12,8 @@ Frontend:
 - Vite
 - TailwindCSS
 
-Backend: TBD
+Backend: 
+- Supabase
 
 ## Prerequisites
 
