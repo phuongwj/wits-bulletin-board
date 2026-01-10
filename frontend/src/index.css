@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Trocchi&display=swap');
+@import "tailwindcss";
 
 :root {
   font-family: "Trocchi", serif;
