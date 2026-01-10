@@ -92,11 +92,11 @@ export default function CreatePortrait() {
 
   return (
     <>
-      <div className="flex flex-col items-center">
-
+      <div className="flex flex-col items-center pt-10">
+      
         {/* Header: Back Button + Draw Title */}
-        <div className="flex flex-row w-full items-center justify-between mb-10">
-          <button 
+        <div className="flex flex-row items-center justify-center space-x-60 w-full mb-4">
+          <button
             className="inline-flex items-center gap-2 w-fit h-fit text-lg text-white/50 hover:text-white transition duration-200 cursor-pointer"
             onClick={() => navigate('/')}
           >
