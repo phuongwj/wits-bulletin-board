@@ -1,12 +1,19 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
-export default function Form() {
-    const [name, setName] = useState('');
-    const [bio, setBio] = useState('');
+interface FormProps {
+    onSave: (name: string, bio: string) => void | Promise<void>;
+};
 
-    const handleSave = () => {
-        alert("Saving function goes here!");
-    }
+const Form = ({ onSave }: FormProps) => {
+  let navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [bio, setBio] = useState('');
+
+  const handleSave = async () => {
+    await onSave(name, bio);
+    navigate("/");
+  }
 
   return (
     <div 
@@ -48,7 +55,7 @@ export default function Form() {
             onClick={handleSave}
             className={`
                 w-full py-2
-                ${name.trim() ? 'bg-[#EBC96D] text-black' : 'bg-[#EBC96D]/50 text-black/50'}
+                ${name.trim() ? 'bg-[#EBC96D] text-black cursor-pointer hover:bg-[#f0bf39] transition duration-200' : 'bg-[#EBC96D]/50 text-black/50'}
             `}
             disabled={!name.trim()}
         >
@@ -57,3 +64,5 @@ export default function Form() {
     </div>
   )
 }
+
+export default Form;

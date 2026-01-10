@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { ArrowLeft } from 'lucide-react';
 import Tools from '../components/Tools';
 import Form from '../components/Form';
+import { supabase } from "../supabase";
 
 export default function CreatePortrait() {
   let navigate = useNavigate();
@@ -13,14 +14,6 @@ export default function CreatePortrait() {
   const [eraseMode, setEraseMode] = useState(false);
   const [strokeWeight, setStrokeWeight] = useState(2);
   const [canUndoRedo, setCanUndoRedo] = useState({ canUndo: false, canRedo: false});
-
-  const updateUndoRedoState = async () => {
-    if (canvasRef.current) {
-      const paths = await canvasRef.current.exportPaths();
-      const canUndo = paths.length > 0;
-      setCanUndoRedo(prev => ({ ...prev, canUndo }));
-    }
-  };
 
   const handleEraserClick = (mode: boolean) => {
     setEraseMode(mode);
@@ -42,6 +35,14 @@ export default function CreatePortrait() {
     updateUndoRedoState();
   }
 
+  const updateUndoRedoState = async () => {
+    if (canvasRef.current) {
+      const paths = await canvasRef.current.exportPaths();
+      const canUndo = paths.length > 0;
+      setCanUndoRedo(prev => ({ ...prev, canUndo }));
+    }
+  };
+
   const handleStrokeWeight = (mode: number) => {
     setStrokeWeight(mode);
   }
@@ -51,13 +52,51 @@ export default function CreatePortrait() {
     setCanUndoRedo({ canUndo: false, canRedo: false });
   }
 
+  const exportCanvasImage = async (): Promise<string | null> => {
+    if (!canvasRef.current) {
+      console.log("No canvas references");
+      return null;
+  }
+
+    try {
+      const dataUrl = await canvasRef.current.exportImage("png");
+      return dataUrl;
+    } catch (err) {
+      console.error("Failed to export canvas", err);
+      return null;
+    }
+  };
+
+  const handlePinToBoard = async (name: string, bio: string) => {
+    const imageDataUrl = await exportCanvasImage();
+    if (!imageDataUrl) {
+      console.log("No image found :(")
+      return;
+    }
+
+    const { error } = await supabase
+      .from("pins")
+      .insert({
+        name,
+        bio,
+        image_url: imageDataUrl,
+      });
+
+    if (error) {
+      console.error("Error inserting pin: ", error);
+      return;
+    }
+
+    console.log({ name, bio, imageDataUrl });
+  };
+
   return (
     <>
-      <div className="flex flex-col items-center">
-
+      <div className="flex flex-col items-center pt-10">
+      
         {/* Header: Back Button + Draw Title */}
-        <div className="flex flex-row w-full items-center justify-between mb-10">
-          <button 
+        <div className="flex flex-row items-center justify-center space-x-60 w-full mb-4">
+          <button
             className="inline-flex items-center gap-2 w-fit h-fit text-lg text-white/50 hover:text-white transition duration-200 cursor-pointer"
             onClick={() => navigate('/')}
           >
@@ -123,7 +162,9 @@ export default function CreatePortrait() {
           </div>
 
           {/* Right side: Form */}
-          <Form/>
+          <Form
+            onSave={handlePinToBoard}
+          />
         </div>
       </div>
     </>

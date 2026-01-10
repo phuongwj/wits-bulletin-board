@@ -162,4 +162,4 @@ const Tools = ({
   )
 }
 
-export default Tools
+export default Tools;
