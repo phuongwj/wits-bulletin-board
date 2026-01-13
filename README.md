@@ -9,6 +9,7 @@ The application allows visitors to draw a self-portrait (or any creative portrai
 Frontend:
 - TypeScript
 - React Router
+- react-sketch-canvas (the library for all the drawings)
 - Vite
 - TailwindCSS
 - Deployed on Vercel
