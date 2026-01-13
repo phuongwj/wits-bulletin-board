@@ -16,22 +16,22 @@ const Form = ({ onSave }: FormProps) => {
   }
 
   return (
-    <div 
-        className="bg-[#E0CEF3] p-6 space-y-6 w-100 h-130"
+    <div
+        className="bg-[#126064] p-6 space-y-6 w-100 h-130"
         style={{
               transform: 'rotate(-1deg)',
               boxShadow: 'var(--shadow-note)',
         }}
-    >   
-        
+    >
+
         <div className="tape"/>
 
         {/* Name */}
         <div className="space-y-2">
-            <label className="flex flex-col gap-2 text-black text-lg font-bold">Your Name</label>
-            <input 
-                name="name" 
-                className="bg-white text-black w-full p-3"
+            <label className="flex flex-col gap-2 text-white text-lg font-bold">Your Name</label>
+            <input
+                name="name"
+                className="bg-white text-[#126064] w-full p-3"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="What should we call you?"
@@ -40,10 +40,10 @@ const Form = ({ onSave }: FormProps) => {
 
         {/* Bio */}
         <div className="space-y-2">
-            <label className="flex flex-col gap-2 text-black text-lg font-bold">Your Bio</label>
-            <textarea 
-                name="bio" 
-                className="bg-white text-black w-full p-3"
+            <label className="flex flex-col gap-2 text-white text-lg font-bold">Your Bio</label>
+            <textarea
+                name="bio"
+                className="bg-white text-[#126064] w-full p-3"
                 value={bio}
                 rows={4}
                 onChange={(e) => setBio(e.target.value)}
@@ -51,11 +51,11 @@ const Form = ({ onSave }: FormProps) => {
             />
         </div>
 
-        <button 
+        <button
             onClick={handleSave}
             className={`
                 w-full py-2
-                ${name.trim() ? 'bg-[#EBC96D] text-black cursor-pointer hover:bg-[#f0bf39] transition duration-200' : 'bg-[#EBC96D]/50 text-black/50'}
+                ${name.trim() ? 'bg-[#F26A21] text-white cursor-pointer hover:bg-[#F26A21]/80 transition duration-200' : 'bg-[#F26A21]/50 text-white/50'}
             `}
             disabled={!name.trim()}
         >

@@ -39,14 +39,14 @@ const Tools = ({
         <div className="flex items-center gap-3 flex-wrap">
 
             {/* Paintbrush */}
-            <button 
+            <button
                 className={`
                     flex items-center gap-1 px-4 py-2
-                    hover:bg-[#9FDEDE] border-2 border-[#464039] 
-                    hover:text-black text-sm font-medium
+                    hover:bg-[#147A80] border-2 border-[#126064]
+                    hover:text-white text-sm font-medium
                     shadow-md cursor-pointer
                     transition-all duration-200
-                    ${!eraseMode ? 'bg-[#EDC95E] hover:bg-[#EDC95E]/80 text-black' : 'bg-transparent text-white'}
+                    ${!eraseMode ? 'bg-[#F26A21] hover:bg-[#F26A21]/80 text-white' : 'bg-transparent text-[#126064]'}
                 `}
                 onClick={() => setEraseMode(false)}
             >
@@ -55,28 +55,28 @@ const Tools = ({
             </button>
 
             {/* Eraser */}
-            <button 
+            <button
                 className={`
                     flex items-center gap-1 px-4 py-2
-                    hover:bg-[#9FDEDE] border-2 border-[#464039] 
-                    hover:text-black text-sm font-medium
+                    hover:bg-[#147A80] border-2 border-[#126064]
+                    hover:text-white text-sm font-medium
                     shadow-md cursor-pointer
                     transition-all duration-200
-                    ${eraseMode ? 'bg-[#EDC95E] hover:bg-[#EDC95E]/80 text-black' : 'bg-transparent text-white'}
+                    ${eraseMode ? 'bg-[#F26A21] hover:bg-[#F26A21]/80 text-white' : 'bg-transparent text-[#126064]'}
                 `}
                 onClick={() => setEraseMode(true)}
-            >            
+            >
                 <Eraser className="h4 w-4 mr-2" />
                 Erase
             </button>
 
             {/* Clear */}
-            <button 
+            <button
                 id="my-button"
                 className="
                     flex items-center gap-1 px-4 py-2
-                    hover:bg-[#9FDEDE] border-2 border-[#464039] 
-                    hover:text-black text-sm font-medium
+                    hover:bg-[#147A80] border-2 border-[#126064]
+                    hover:text-white text-sm font-medium text-[#126064]
                     shadow-md cursor-pointer
                     transition-all duration-200"
                 onClick={() => onClear()}
@@ -86,16 +86,16 @@ const Tools = ({
             </button>
 
             {/* Undo */}
-            <button 
+            <button
                 className={`
                     flex items-center gap-1 px-4 py-2
-                    border-2 border-[#464039] 
+                    border-2 border-[#126064]
                     text-sm font-medium
                     shadow-md
                     transition-all duration-200
-                    ${canUndoRedo.canUndo 
-                        ? 'bg-transparent text-white hover:bg-[#9FDEDE] hover:text-black cursor-pointer' 
-                        : 'bg-transparent text-white/10'
+                    ${canUndoRedo.canUndo
+                        ? 'bg-transparent text-[#126064] hover:bg-[#147A80] hover:text-white cursor-pointer'
+                        : 'bg-transparent text-[#126064]/30'
                     }
                 `}
                 onClick={() => onUndo()}
@@ -106,16 +106,16 @@ const Tools = ({
             </button>
 
             {/* Redo */}
-            <button 
+            <button
                 className={`
                     flex items-center gap-1 px-4 py-2
-                    border-2 border-[#464039] 
+                    border-2 border-[#126064]
                     text-sm font-medium
-                    shadow-md 
+                    shadow-md
                     transition-all duration-200
-                    ${canUndoRedo.canRedo 
-                        ? 'bg-transparent text-white hover:bg-[#9FDEDE] hover:text-black cursor-pointer' 
-                        : 'bg-transparent text-white/10'
+                    ${canUndoRedo.canRedo
+                        ? 'bg-transparent text-[#126064] hover:bg-[#147A80] hover:text-white cursor-pointer'
+                        : 'bg-transparent text-[#126064]/30'
                     }
                 `}
                 onClick={() => onRedo()}
@@ -128,10 +128,10 @@ const Tools = ({
 
         {/* Color Slider */}
         <div className="flex items-center gap-2">
-            <span className="text-[#a7a7a7]">Size:</span>
-            <input 
+            <span className="text-[#126064]">Size:</span>
+            <input
                 id="stroke-size"
-                type="range" 
+                type="range"
                 min="1"
                 max="20"
                 value={strokeWeight}
@@ -143,7 +143,7 @@ const Tools = ({
 
         {/* Color Picker Section */}
         <div className="flex items-center gap-2">
-            <label className="text-sm font-medium text-[#a7a7a7]">Color:</label>
+            <label className="text-sm font-medium text-[#126064]">Color:</label>
             <div className="relative">
                 <input 
                     id="color-picker"

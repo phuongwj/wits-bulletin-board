@@ -92,12 +92,12 @@ export default function CreatePortrait() {
 
   return (
     <>
-      <div className="flex flex-col items-center pt-10">
-      
+      <div className="min-h-screen bg-[#FFC5C5] flex flex-col items-center pt-10">
+
         {/* Header: Back Button + Draw Title */}
         <div className="flex flex-row items-center justify-center space-x-60 w-full mb-4">
           <button
-            className="inline-flex items-center gap-2 w-fit h-fit text-lg text-white/50 hover:text-white transition duration-200 cursor-pointer"
+            className="inline-flex items-center gap-2 w-fit h-fit text-lg text-[#126064] hover:text-[#147A80] transition duration-200 cursor-pointer"
             onClick={() => navigate('/')}
           >
             <ArrowLeft className="h-5 w-5"/>
@@ -105,13 +105,13 @@ export default function CreatePortrait() {
           </button>
 
           <div
-            className="bg-[#FFF0B3] px-6 py-3"
+            className="bg-[#147A80] px-6 py-3"
             style={{
               transform: 'rotate(-1deg)',
               boxShadow: 'var(--shadow-note)',
             }}
           >
-            <p className="text-[#38332E] text-3xl">
+            <p className="text-white text-3xl">
               Draw Your Portrait 🎨
             </p>
           </div>
@@ -125,7 +125,7 @@ export default function CreatePortrait() {
 
             {/* Canvas to Draw */}
             <div
-              className="bg-teal-100 p-4 w-fit"
+              className="bg-[#147A80] p-4 w-fit"
               style={{
                 transform: 'rotate(1deg)',
                 boxShadow: 'var(--shadow-note),'
