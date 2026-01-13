@@ -4,8 +4,6 @@ This project is a small interactive web application created for the universityâ€
 
 The application allows visitors to draw a self-portrait (or any creative portrait), add their name and a short bio, and contribute it to a shared digital bulletin board. The goal is to create a welcoming, creative space that highlights individuality, community, and representation in technology.
 
-You can check out the website here -> https://wits-bulletin-board.vercel.app/
-
 ## Technologies Used
 
 Frontend:
