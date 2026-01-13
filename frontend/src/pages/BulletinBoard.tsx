@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { supabase } from '../supabase';
+import WITSLogo from '../assets/WITSLogo.png';
 
 type Pin = {
   id: string,
@@ -72,7 +73,7 @@ export default function BulletinBoard() {
           </h1>
         </div>
         <img
-          src="/src/assets/WITSLogo.png"
+          src={WITSLogo}
           alt="WITS Logo"
           className="h-16"
         />
