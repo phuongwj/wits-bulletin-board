@@ -4,6 +4,8 @@ This project is a small interactive web application created for the university�
 
 The application allows visitors to draw a self-portrait (or any creative portrait), add their name and a short bio, and contribute it to a shared digital bulletin board. The goal is to create a welcoming, creative space that highlights individuality, community, and representation in technology.
 
+If you visit the website and don’t see any images, it’s because my Supabase database isn’t running. I’m on the free tier, and Supabase automatically pauses inactive projects.
+
 ## Technologies Used
 
 Frontend:
